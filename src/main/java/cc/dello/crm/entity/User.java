@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import java.util.Date;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -24,24 +25,31 @@ public class User extends BaseEntity{
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private Long Id;
-  @DateTimeFormat
+
   @Column(name = "created_at")
-  private Date CreatedAt;
-  @DateTimeFormat
+  private LocalDateTime CreatedAt;
+
   @Column(name = "updated_at")
-  private Date UpdatedAt;
+  private LocalDateTime UpdatedAt;
+
   @Column(name = "role_id")
   private Long RoleId;
+
   @Column(name = "name")
   private String Name;
+
   @Column(name = "email")
   private String Email;
+
   @Column(name = "password")
   private String Password;
+
   @Column(name = "tel")
   private String tel;
+
   @Column(name = "remember_token")
   private String RememberToken;
+
   @Column(name = "team_id")
   private Long TeamId;
 
