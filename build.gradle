@@ -34,6 +34,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 
+    //mysql
+    implementation 'mysql:mysql-connector-java:8.0.32'
+
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
@@ -78,4 +81,6 @@ dependencies {
         // 5. QueryDSL과 관련된 라이브러리들이 컴파일 시점에만 필요하도록 설정합니다. 또한, QueryDSL 설정을 컴파일 클래스패스에 추가합니다.
         querydsl.extendsFrom compileClasspath
     }
+
+
 }
