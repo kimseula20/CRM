@@ -16,17 +16,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
  */
 @Configuration
 @EnableJpaAuditing
-public class JpaConfig {
+public class QuerydslConfig {
 
   // 데이터베이스를 사용하기 위한 주요 인터페이스를 주입받습니다.
   @PersistenceContext
   private EntityManager em;
 
-  /**
-   * JPAQueryFactory 를 bean으로 구성하여 매번 EntityManager로 부터 주입받는 부분을 줄임.
-   *
-   * @return JPAQueryFactory
-   */
   @Bean
   public JPAQueryFactory jpaQueryFactory() {
     return new JPAQueryFactory(em);
