@@ -1,5 +1,6 @@
 package cc.dello.crm.dto;
 
+import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,12 @@ import lombok.ToString;
 public class UserDTO {
 
   private Long Id;
+  private LocalDateTime CreatedAt;
+  private LocalDateTime UpdatedAt;
+  private Long RoleId;
   private String Name;
   private String Email;
+  private String tel;
+  private Long TeamId;
 
 }

@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: crm
+  config:
+    activate:
+      on-profile: local
+
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+    database: mysql
+
+logging:
+  level:
+    org.hibernate.sql: debug

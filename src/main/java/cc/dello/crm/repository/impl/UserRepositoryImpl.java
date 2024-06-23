@@ -12,4 +12,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 
   private final JPAQueryFactory queryFactory;
 
+//  public User findOneUser(Long userId) {
+//  }
+
 }

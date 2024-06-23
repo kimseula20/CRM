@@ -16,39 +16,39 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "company")
+public class Company {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
-  private Long Id;
+  private Long id;
+
+  @Column(name = "biz_number")
+  private String BizNumber;
+
+  @Column(name = "name")
+  private String Name;
+
+  @Column(name = "owner_name")
+  private String OwnerName;
+
+  @Column(name = "address")
+  private String Address;
+
+  @Column(name = "address2")
+  private String Address2;
+
+  @Column(name = "biz_condition")
+  private String BizCondition;
+
+  @Column(name = "biz_category")
+  private String BizCategory;
 
   @Column(name = "created_at")
   private LocalDateTime CreatedAt;
 
   @Column(name = "updated_at")
   private LocalDateTime UpdatedAt;
-
-  @Column(name = "role_id")
-  private Long RoleId;
-
-  @Column(name = "name")
-  private String Name;
-
-  @Column(name = "email")
-  private String Email;
-
-  @Column(name = "password")
-  private String Password;
-
-  @Column(name = "tel")
-  private String tel;
-
-  @Column(name = "remember_token")
-  private String RememberToken;
-
-  @Column(name = "team_id")
-  private Long TeamId;
 
 }
