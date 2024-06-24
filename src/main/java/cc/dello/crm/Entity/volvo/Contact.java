@@ -1,10 +1,7 @@
-package cc.dello.crm.Entity;
+package cc.dello.crm.Entity.volvo;
 
-import cc.dello.crm.Enum.DepositStatusEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,8 +16,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "deposit")
-public class Deposit {
+@Table(name = "contact")
+public class Contact {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,29 +27,16 @@ public class Deposit {
   @Column(name = "name")
   private String Name;
 
-  @Column(name = "price")
-  private Long Price;
+  @Column(name = "Tel")
+  private String Tel;
 
-  @Column(name = "paid_price")
-  private Long PaidPrice;
-
-  @Column(name = "biz_number")
-  private String BizNumber;
-
-  @Column(name = "input_at")
-  private LocalDateTime InputAt;
-
-  @Column(name = "status")
-  @Enumerated(EnumType.STRING)
-  private DepositStatusEnum Status;
+  @Column(name = "email")
+  private String Email;
 
   @Column(name = "created_at")
   private LocalDateTime CreatedAt;
 
-  @Column(name = "deleted_at")
-  private LocalDateTime DeletedAt;
-
-  @Column(name = "deleted_user_id")
-  private Long DeletedUserId;
+  @Column(name = "updated_at")
+  private LocalDateTime UpdatedAt;
 
 }

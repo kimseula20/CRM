@@ -1,9 +1,10 @@
-package cc.dello.crm.Entity;
+package cc.dello.crm.Entity.volvo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
@@ -19,14 +20,17 @@ import lombok.Setter;
 public class BusinessRelBmwAdvertiser {
 
   @Id
-  @OneToOne(fetch = FetchType.EAGER)
   @Column(name = "business_id")
-  private Business business;
+  private Long businessId;
 
   @Column(name = "bmw_advertiser_id")
-  private Long BmwAdvertiserId;
+  private Long bmwAdvertiserId;
 
   @Column(name = "adcenter_is_show")
-  private Integer AdcenterIsShow;
+  private Integer adcenterIsShow;
+
+  @ManyToOne
+  @Column(name = "business_id")
+  private Business business;
 
 }

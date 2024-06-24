@@ -1,4 +1,4 @@
-package cc.dello.crm.Entity;
+package cc.dello.crm.Entity.volvo;
 
 import cc.dello.crm.Enum.BusinessStatusEnum;
 import jakarta.persistence.Column;
@@ -8,6 +8,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
@@ -28,113 +30,126 @@ public class Business {
   private Long id;
 
   @Column(name = "created_at")
-  private LocalDateTime CreatedAt;
+  private LocalDateTime createdAt;
 
   @Column(name = "updated_at")
-  private LocalDateTime UpdatedAt;
+  private LocalDateTime updatedAt;
 
   @Column(name = "customer_at")
-  private LocalDateTime CustomerAt;
+  private LocalDateTime customerAt;
 
   @Column(name = "user_id")
-  private Long UserId;
+  private Long userId;
 
   @Column(name = "created_user_id")
-  private Long CreatedUserId;
+  private Long createdUserId;
 
   @Column(name = "cm_id")
-  private Long CmId;
+  private Long cmId;
 
   @Column(name = "last_activity_id")
-  private Long LastActivityId;
+  private Long lastActivityId;
 
   @Column(name = "company_id")
-  private Long CompanyId;
+  private Long companyId;
 
   @Column(name = "name")
-  private String Name;
+  private String name;
 
   @Column(name = "owner_name")
-  private String OwnerName;
+  private String ownerName;
 
   @Column(name = "biz_number")
-  private String BizNumber;
+  private String bizNumber;
 
   @Column(name = "biz_division")
-  private String BizDivision;
+  private String bizDivision;
 
   @Column(name = "biz_type")
-  private String BizType;
+  private String bizType;
 
   @Column(name = "biz_condition")
-  private String BizCondition;
+  private String bizCondition;
 
   @Column(name = "biz_category")
-  private String BizCategory;
+  private String bizCategory;
 
   @Column(name = "location")
-  private String Location;
+  private String location;
 
   @Column(name = "location_sub")
-  private String LocationSub;
+  private String locationSub;
 
   @Column(name = "address")
-  private String Address;
+  private String address;
 
   @Column(name = "address2")
-  private String Address2;
+  private String address2;
 
   @Column(name = "homepage")
-  private String Homepage;
+  private String homepage;
 
   @Column(name = "bizcenter_id")
-  private Long BizcenterId;
+  private Long bizcenterId;
 
   @Column(name = "lead_type")
-  private String LeadType;
+  private String leadType;
 
   @Column(name = "lead_source")
-  private String LeadSource;
+  private String leadSource;
 
   @Column(name = "inbound_channel")
-  private String InboundChannel;
+  private String inboundChannel;
 
   @Column(name = "interest_product")
-  private String InterestProduct;
+  private String interestProduct;
 
   @Column(name = "team")
-  private String Team;
+  private String team;
 
   @Column(name = "status")
   @Enumerated(EnumType.STRING)
-  private BusinessStatusEnum Status;
+  private BusinessStatusEnum status;
 
   @Column(name = "memo")
-  private String Memo;
+  private String memo;
 
   @Column(name = "relation_brand")
-  private String RelationBrand;
+  private String relationBrand;
 
   @Column(name = "receive_ad")
-  private Integer ReceiveAd;
+  private Integer receiveAd;
 
   @Column(name = "receive_ad_date")
-  private LocalDateTime ReceiveAdDate;
+  private LocalDateTime receiveAdDate;
 
   @Column(name = "utm_source")
-  private String UtmSource;
+  private String utmSource;
 
   @Column(name = "utm_medium")
-  private String UtmMedium;
+  private String utmMedium;
 
   @Column(name = "utm_campaign")
-  private String UtmCampaign;
+  private String utmCampaign;
 
   @Column(name = "utm_date")
-  private LocalDateTime UtmDate;
+  private LocalDateTime utmDate;
 
   @Column(name = "lgu_code")
-  private String LguCode;
+  private String lguCode;
 
+  @OneToOne
+  private User user;
+
+  @OneToOne
+  @JoinColumn(name = "created_user_id")
+  private User createdUser;
+
+  @OneToOne
+  @JoinColumn(name = "cm_id")
+  private User cmUser;
+
+  @OneToOne
+  private Company company;
 
 }

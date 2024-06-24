@@ -1,10 +1,11 @@
-package cc.dello.crm.Entity;
+package cc.dello.crm.Entity.volvo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
@@ -16,8 +17,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "board")
-public class Board {
+@Table(name = "activity")
+public class Activity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,21 +26,33 @@ public class Board {
   private Long id;
 
   @Column(name = "user_id")
-  private Long UserId;
+  private Long userId;
 
-  @Column(name = "entity")
-  private String Entity;
+  @Column(name = "ref_source")
+  private String refSource;
 
-  @Column(name = "title")
-  private String Title;
+  @Column(name = "ref_key")
+  private Long refKey;
+
+  @Column(name = "tag")
+  private String tag;
 
   @Column(name = "contents")
   private String contents;
 
+  @Column(name = "files")
+  private String files;
+
+  @Column(name = "ref_sub_key")
+  private Long refSubKey;
+
   @Column(name = "created_at")
-  private LocalDateTime CreatedAt;
+  private LocalDateTime createdAt;
 
   @Column(name = "updated_at")
-  private LocalDateTime UpdatedAt;
+  private LocalDateTime updatedAt;
+
+  @ManyToOne
+  private User user;
 
 }

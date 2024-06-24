@@ -1,4 +1,4 @@
-package cc.dello.crm.Entity;
+package cc.dello.crm.Entity.volvo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,39 +16,36 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "activity")
-public class Activity {
+@Table(name = "kakao_log")
+public class KakaoLog {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "user_id")
-  private Long userId;
+  @Column(name = "payment_id")
+  private Long paymentId;
 
-  @Column(name = "ref_source")
-  private String refSource;
+  @Column(name = "from_user_id")
+  private Long fromUserId;
 
-  @Column(name = "ref_key")
-  private Long refKey;
+  @Column(name = "to_contact_id")
+  private Long toContacId;
 
-  @Column(name = "tag")
-  private String tag;
+  @Column(name = "phone")
+  private String phone;
 
-  @Column(name = "contents")
-  private String contents;
+  @Column(name = "template_code")
+  private String templateCode;
 
-  @Column(name = "files")
-  private String files;
+  @Column(name = "content")
+  private String content;
 
-  @Column(name = "ref_sub_key")
-  private Long refSubKey;
+  @Column(name = "attachment")
+  private String attachment;
 
   @Column(name = "created_at")
   private LocalDateTime createdAt;
-
-  @Column(name = "updated_at")
-  private LocalDateTime updatedAt;
 
 }

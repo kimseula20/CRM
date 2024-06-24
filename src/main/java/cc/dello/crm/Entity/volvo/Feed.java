@@ -1,4 +1,4 @@
-package cc.dello.crm.Entity;
+package cc.dello.crm.Entity.volvo;
 
 import cc.dello.crm.Enum.FeedRefSourceEnum;
 import cc.dello.crm.Enum.FeedTypeEnum;
@@ -6,9 +6,12 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
@@ -65,5 +68,13 @@ public class Feed {
 
   @Column(name = "ref_sub_key")
   String RefSubKey;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  private User user;
+
+  //TODO : task relationship
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  private Activity activity;
 
 }

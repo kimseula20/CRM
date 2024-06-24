@@ -1,4 +1,4 @@
-package cc.dello.crm.Entity;
+package cc.dello.crm.Entity.volvo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,27 +16,39 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "contact")
-public class Contact {
+@Table(name = "user")
+public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
-  private Long id;
-
-  @Column(name = "name")
-  private String Name;
-
-  @Column(name = "Tel")
-  private String Tel;
-
-  @Column(name = "email")
-  private String Email;
+  private Long Id;
 
   @Column(name = "created_at")
   private LocalDateTime CreatedAt;
 
   @Column(name = "updated_at")
   private LocalDateTime UpdatedAt;
+
+  @Column(name = "role_id")
+  private Long RoleId;
+
+  @Column(name = "name")
+  private String Name;
+
+  @Column(name = "email")
+  private String Email;
+
+  @Column(name = "password")
+  private String Password;
+
+  @Column(name = "tel")
+  private String tel;
+
+  @Column(name = "remember_token")
+  private String RememberToken;
+
+  @Column(name = "team_id")
+  private Long TeamId;
 
 }

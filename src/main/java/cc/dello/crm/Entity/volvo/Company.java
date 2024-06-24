@@ -1,4 +1,4 @@
-package cc.dello.crm.Entity;
+package cc.dello.crm.Entity.volvo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -42,4 +42,4 @@ src/main/resources/application-dev.yaml
 src/main/resources/application-prod.yaml
 src/test/*
 
-src/main/generated/querydsl
+src/main/generated/*
