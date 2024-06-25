@@ -1,5 +1,7 @@
 package cc.dello.crm.Dto;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -16,15 +18,17 @@ import lombok.ToString;
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@JsonNaming(PropertyNamingStrategies.UpperCamelCaseStrategy.class)
 public class UserDTO {
 
-  private Long Id;
-  private LocalDateTime CreatedAt;
-  private LocalDateTime UpdatedAt;
-  private Long RoleId;
-  private String Name;
-  private String Email;
+  private Long id;
+  private LocalDateTime createdAt;
+  private LocalDateTime updateAt;
+  private Long roleId;
+  private String name;
+  private String email;
   private String tel;
-  private Long TeamId;
+  private Long teamId;
+
 
 }
