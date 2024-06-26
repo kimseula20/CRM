@@ -20,19 +20,22 @@ import lombok.Setter;
 public class BusinessContact {
 
   @Id
-  @ManyToOne(fetch = FetchType.EAGER)
   @Column(name = "business_id")
-  private Business business;
+  private Long businessId;
 
-  @Id
-  @ManyToOne(fetch = FetchType.EAGER)
   @Column(name = "contact_id")
-  private Contact contact;
+  private Long contactId;
 
   @Column(name = "is_default")
   private String isDefault;
 
   @Column(name = "created_at")
   private LocalDateTime createdAt;
+
+  @ManyToOne
+  private Business business;
+
+  @ManyToOne
+  private Contact contact;
 
 }

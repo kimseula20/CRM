@@ -1,11 +1,7 @@
 package cc.dello.crm.Entity.volvo;
 
-import cc.dello.crm.Enum.FeedRefSourceEnum;
-import cc.dello.crm.Enum.FeedTypeEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,8 +19,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "feed")
-public class Feed {
+@Table(name = "task")
+public class Task {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,37 +30,35 @@ public class Feed {
   @Column(name = "user_id")
   private Long userId;
 
-  @Column(name = "task_id")
-  private Long taskId;
-
-  @Column(name = "activity_id")
-  private Long activityId;
+  @Column(name = "manager_id")
+  private Long managerId;
 
   @Column(name = "ref_source")
-  @Enumerated(EnumType.STRING)
-  private FeedRefSourceEnum refSource;
+  private String refSource;
 
   @Column(name = "ref_key")
   private Long refKey;
 
-  @Column(name = "type")
-  @Enumerated(EnumType.STRING)
-  FeedTypeEnum type;
+  @Column(name = "title")
+  private String title;
 
   @Column(name = "contents")
-  String contents;
+  private String contents;
+
+  @Column(name = "status")
+  private String status;
 
   @Column(name = "files")
-  String files;
-
-  @Column(name = "pin")
-  Integer pin;
+  private String files;
 
   @Column(name = "created_at")
   LocalDateTime createdAt;
 
   @Column(name = "updated_at")
   LocalDateTime updatedAt;
+
+  @Column(name = "completed_at")
+  LocalDateTime completedAt;
 
   @Column(name = "ref_sub_key")
   String refSubKey;
@@ -73,9 +67,7 @@ public class Feed {
   private User user;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  private Task task;
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  private Activity activity;
+  @JoinColumn(name = "manager_id")
+  private User manager;
 
 }

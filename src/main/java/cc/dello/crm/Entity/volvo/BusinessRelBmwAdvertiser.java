@@ -30,7 +30,6 @@ public class BusinessRelBmwAdvertiser {
   private Integer adcenterIsShow;
 
   @ManyToOne
-  @Column(name = "business_id")
   private Business business;
 
 }
