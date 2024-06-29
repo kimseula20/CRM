@@ -22,6 +22,7 @@ public class LabelRelBusiness {
   @Column(name = "label_id")
   private Long labelId;
 
+  @Id
   @Column(name = "business_id")
   private Long businessId;
 

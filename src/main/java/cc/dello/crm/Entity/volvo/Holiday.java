@@ -5,9 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,26 +15,27 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "payment_auth")
-public class PaymentAuth {
+@Table(name = "holiday")
+public class Holiday {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "payment_id")
-  private Long paymentId;
+  @Column(name = "name")
+  private String name;
 
-  @Column(name = "auth_key")
-  private String authKey;
+  @Column(name = "year")
+  private String year;
 
-  @Column(name = "tel")
-  private String tel;
+  @Column(name = "month")
+  private String month;
 
-  @Column(name = "created_at")
-  private LocalDateTime createdAt;
+  @Column(name = "day")
+  private String day;
 
-  @ManyToOne
-  private Payment payment;
+  @Column(name = "is_holiday")
+  private String isHoliday;
+
 }

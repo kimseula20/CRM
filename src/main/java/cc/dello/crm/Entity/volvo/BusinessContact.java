@@ -20,10 +20,10 @@ import lombok.Setter;
 public class BusinessContact {
 
   @Id
-  @Column(name = "business_id")
+  @Column(name = "business_id", unique = true)
   private Long businessId;
 
-  @Column(name = "contact_id")
+  @Column(name = "contact_id", unique = true)
   private Long contactId;
 
   @Column(name = "is_default")

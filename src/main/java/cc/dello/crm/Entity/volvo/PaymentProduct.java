@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
@@ -75,6 +76,7 @@ public class PaymentProduct {
   @Column(name = "crema_brand_id")
   private Long cremaBrandId;
 
-
+  @OneToOne
+  private Payment payment;
 
 }

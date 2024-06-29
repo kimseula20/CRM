@@ -21,6 +21,7 @@ public class LabelRelPayment {
   @Column(name = "label_id")
   private Long labelId;
 
+  @Id
   @Column(name = "payment_id")
   private Long paymentId;
 

@@ -23,6 +23,7 @@ public class BusinessRelBmwAdvertiser {
   @Column(name = "business_id")
   private Long businessId;
 
+  @Id
   @Column(name = "bmw_advertiser_id")
   private Long bmwAdvertiserId;
 

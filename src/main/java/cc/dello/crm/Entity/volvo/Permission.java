@@ -5,8 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import javax.management.relation.Role;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,10 +34,10 @@ public class Permission {
   @Column(name = "updated_at")
   private LocalDateTime updatedAt;
 
-  @Column(name = "role_id")
+  @Column(name = "role_id", unique = true)
   private Long roleId;
 
-  @Column(name = "entity")
+  @Column(name = "entity", unique = true)
   private String entity;
 
   @Column(name = "permit")
@@ -41,5 +45,8 @@ public class Permission {
 
   @Column(name = "scope")
   private String scope;
+
+  //TODO:foreign key setting
+  private Role role;
 
 }

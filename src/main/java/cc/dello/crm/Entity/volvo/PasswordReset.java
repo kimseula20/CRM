@@ -20,7 +20,6 @@ import lombok.Setter;
 public class PasswordReset {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "email")
   private String email;
 

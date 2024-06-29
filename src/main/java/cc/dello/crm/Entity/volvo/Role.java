@@ -16,39 +16,21 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "company")
-public class Company {
+@Table(name = "role")
+public class Role {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "biz_number", unique = true)
-  private String BizNumber;
-
-  @Column(name = "name")
-  private String Name;
-
-  @Column(name = "owner_name")
-  private String OwnerName;
-
-  @Column(name = "address")
-  private String Address;
-
-  @Column(name = "address2")
-  private String Address2;
-
-  @Column(name = "biz_condition")
-  private String BizCondition;
-
-  @Column(name = "biz_category")
-  private String BizCategory;
-
   @Column(name = "created_at")
-  private LocalDateTime CreatedAt;
+  private LocalDateTime createdAt;
 
   @Column(name = "updated_at")
-  private LocalDateTime UpdatedAt;
+  private LocalDateTime updatedAt;
+
+  @Column(name = "name")
+  private String name;
 
 }
