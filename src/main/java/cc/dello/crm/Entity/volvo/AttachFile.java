@@ -8,13 +8,21 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
+@ToString
+@Builder
 @Entity
 @Table(name = "attach_file")
 public class AttachFile {
@@ -30,7 +38,7 @@ public class AttachFile {
   @Column(name = "payment_id")
   private Long paymentId;
 
-  @Column(name = "type")
+  @Column(name = "type", length = 45)
   private String type;
 
   @Column(name = "files")

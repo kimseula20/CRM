@@ -9,13 +9,21 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
+@ToString
+@Builder
 @Entity
 @Table(name = "activity_comment")
 public class ActivityComment {
@@ -28,10 +36,10 @@ public class ActivityComment {
   @Column(name = "user_id")
   private Long userId;
 
-  @Column(name = "activity_id")
+  @Column(name = "activity_id", nullable = false)
   private Long activityId;
 
-  @Column(name = "comment")
+  @Column(name = "comment", nullable = false)
   private String comment;
 
   @Column(name = "created_at")

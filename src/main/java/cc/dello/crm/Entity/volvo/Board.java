@@ -9,13 +9,21 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
+@ToString
+@Builder
 @Entity
 @Table(name = "board")
 public class Board {
@@ -25,16 +33,16 @@ public class Board {
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "user_id")
+  @Column(name = "user_id", nullable = false)
   private Long userId;
 
-  @Column(name = "entity")
+  @Column(name = "entity", nullable = false)
   private String entity;
 
-  @Column(name = "title")
+  @Column(name = "title", nullable = false)
   private String title;
 
-  @Column(name = "contents")
+  @Column(name = "contents", nullable = false)
   private String contents;
 
   @Column(name = "created_at")

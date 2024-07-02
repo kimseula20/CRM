@@ -107,7 +107,7 @@ public class Business {
   @Column(name = "team")
   private String team;
 
-  @Column(name = "status")
+  @Column(name = "status", nullable = false, columnDefinition = "DEFAULT 'lead'")
   @Enumerated(EnumType.STRING)
   private BusinessStatusEnum status;
 
@@ -117,7 +117,7 @@ public class Business {
   @Column(name = "relation_brand")
   private String relationBrand;
 
-  @Column(name = "receive_ad")
+  @Column(name = "receive_ad", nullable = false, columnDefinition = "DEFAULT 0")
   private Integer receiveAd;
 
   @Column(name = "receive_ad_date")
