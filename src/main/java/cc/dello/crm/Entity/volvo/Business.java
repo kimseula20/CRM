@@ -38,7 +38,7 @@ public class Business {
   @Column(name = "customer_at")
   private LocalDateTime customerAt;
 
-  @Column(name = "user_id")
+  @Column(name = "user_id", nullable = false)
   private Long userId;
 
   @Column(name = "created_user_id")

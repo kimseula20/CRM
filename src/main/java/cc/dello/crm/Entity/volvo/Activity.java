@@ -51,7 +51,7 @@ public class Activity {
   @Column(name = "files", nullable = false)
   private String files;
 
-  @Column(name = "ref_sub_key")
+  @Column(name = "ref_sub_key", nullable = false)
   private Long refSubKey;
 
   @Column(name = "created_at")

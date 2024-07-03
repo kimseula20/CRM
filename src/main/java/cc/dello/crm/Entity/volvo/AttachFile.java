@@ -35,13 +35,13 @@ public class AttachFile {
   @Column(name = "user_id")
   private Long userId;
 
-  @Column(name = "payment_id")
+  @Column(name = "payment_id", nullable = false)
   private Long paymentId;
 
-  @Column(name = "type", length = 45)
+  @Column(name = "type", length = 45, nullable = false)
   private String type;
 
-  @Column(name = "files")
+  @Column(name = "files", nullable = false)
   private String files;
 
   @Column(name = "created_at")

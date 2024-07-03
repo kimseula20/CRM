@@ -2,9 +2,11 @@ package cc.dello.crm.Entity.volvo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
@@ -33,8 +35,9 @@ public class Board {
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "user_id", nullable = false)
-  private Long userId;
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "user_id", nullable = false)
+  private User user;
 
   @Column(name = "entity", nullable = false)
   private String entity;
@@ -50,8 +53,5 @@ public class Board {
 
   @Column(name = "updated_at")
   private LocalDateTime updatedAt;
-
-  @ManyToOne
-  private User user;
 
 }
