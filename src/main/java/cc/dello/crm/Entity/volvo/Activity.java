@@ -2,12 +2,17 @@ package cc.dello.crm.Entity.volvo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,8 +38,9 @@ public class Activity {
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "user_id", nullable = false)
-  private Long userId;
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "user_id", nullable = false)
+  private User user;
 
   @Column(name = "ref_source", nullable = false, length = 45)
   private String refSource;
@@ -60,14 +66,17 @@ public class Activity {
   @Column(name = "updated_at")
   private LocalDateTime updatedAt;
 
-  @ManyToOne
-  private User user;
+  @OneToMany(fetch = FetchType.EAGER)
+  @JoinColumn(name = "activity_id")
+  private List<ActivityComment> activityComments;
+
 
   @Builder
-  public Activity(Long id, Long userId, String refSource, Long refKey, String tag, String contents,
+
+  public Activity(Long id, User user, String refSource, Long refKey, String tag, String contents,
       String files, Long refSubKey, LocalDateTime createdAt, LocalDateTime updatedAt) {
     this.id = id;
-    this.userId = userId;
+    this.user = user;
     this.refSource = refSource;
     this.refKey = refKey;
     this.tag = tag;
