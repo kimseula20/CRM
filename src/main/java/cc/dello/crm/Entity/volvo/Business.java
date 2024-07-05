@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
@@ -53,7 +54,7 @@ public class Business {
   @Column(name = "company_id")
   private Long companyId;
 
-  @Column(name = "name")
+  @Column(name = "name", nullable = false)
   private String name;
 
   @Column(name = "owner_name")
@@ -65,7 +66,7 @@ public class Business {
   @Column(name = "biz_division")
   private String bizDivision;
 
-  @Column(name = "biz_type")
+  @Column(name = "biz_type", nullable = false)
   private String bizType;
 
   @Column(name = "biz_condition")
@@ -141,11 +142,11 @@ public class Business {
   @OneToOne
   private User user;
 
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "created_user_id")
   private User createdUser;
 
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "cm_id")
   private User cmUser;
 
