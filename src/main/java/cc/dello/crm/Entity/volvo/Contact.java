@@ -24,13 +24,13 @@ public class Contact {
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "name")
+  @Column(name = "name", nullable = false)
   private String Name;
 
-  @Column(name = "Tel")
+  @Column(name = "Tel", nullable = false)
   private String Tel;
 
-  @Column(name = "email")
+  @Column(name = "email", nullable = false)
   private String Email;
 
   @Column(name = "created_at")

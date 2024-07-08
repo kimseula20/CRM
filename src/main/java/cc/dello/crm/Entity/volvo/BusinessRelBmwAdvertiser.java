@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -20,17 +21,18 @@ import lombok.Setter;
 public class BusinessRelBmwAdvertiser {
 
   @Id
-  @Column(name = "business_id")
+  @Column(name = "business_id", nullable = false)
   private Long businessId;
 
   @Id
-  @Column(name = "bmw_advertiser_id")
+  @Column(name = "bmw_advertiser_id", nullable = false)
   private Long bmwAdvertiserId;
 
-  @Column(name = "adcenter_is_show")
+  @Column(name = "adcenter_is_show", nullable = false, columnDefinition = "DEFAULT 0")
   private Integer adcenterIsShow;
 
   @ManyToOne
+  @JoinColumn(name = "business_id")
   private Business business;
 
 }

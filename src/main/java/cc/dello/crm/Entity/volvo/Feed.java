@@ -2,6 +2,7 @@ package cc.dello.crm.Entity.volvo;
 
 import cc.dello.crm.Enum.FeedRefSourceEnum;
 import cc.dello.crm.Enum.FeedTypeEnum;
+import com.fasterxml.jackson.databind.introspect.DefaultAccessorNamingStrategy.BaseNameValidator;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -40,24 +41,24 @@ public class Feed {
   @Column(name = "activity_id")
   private Long activityId;
 
-  @Column(name = "ref_source")
+  @Column(name = "ref_source", nullable = false)
   @Enumerated(EnumType.STRING)
   private FeedRefSourceEnum refSource;
 
-  @Column(name = "ref_key")
+  @Column(name = "ref_key", nullable = false)
   private Long refKey;
 
-  @Column(name = "type")
+  @Column(name = "type", nullable = false)
   @Enumerated(EnumType.STRING)
   FeedTypeEnum type;
 
-  @Column(name = "contents")
+  @Column(name = "contents", nullable = false)
   String contents;
 
-  @Column(name = "files")
+  @Column(name = "files", nullable = false)
   String files;
 
-  @Column(name = "pin")
+  @Column(name = "pin", nullable = false, columnDefinition = "DEFAULT 'N'")
   Integer pin;
 
   @Column(name = "created_at")
@@ -70,12 +71,15 @@ public class Feed {
   String refSubKey;
 
   @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_id")
   private User user;
 
   @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "task_id")
   private Task task;
 
   @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "activity_id")
   private Activity activity;
 
 }

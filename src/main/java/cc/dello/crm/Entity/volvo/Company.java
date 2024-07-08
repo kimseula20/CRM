@@ -24,10 +24,10 @@ public class Company {
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "biz_number", unique = true)
+  @Column(name = "biz_number", unique = true, nullable = false)
   private String BizNumber;
 
-  @Column(name = "name")
+  @Column(name = "name", nullable = false)
   private String Name;
 
   @Column(name = "owner_name")

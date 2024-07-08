@@ -30,10 +30,10 @@ public class Deposit {
   @Column(name = "name")
   private String name;
 
-  @Column(name = "price")
+  @Column(name = "price", nullable = false)
   private Long price;
 
-  @Column(name = "paid_price")
+  @Column(name = "paid_price", nullable = false)
   private Long paidPrice;
 
   @Column(name = "biz_number")

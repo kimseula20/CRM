@@ -24,28 +24,28 @@ public class KakaoLog {
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "payment_id")
+  @Column(name = "payment_id", nullable = false)
   private Long paymentId;
 
-  @Column(name = "from_user_id")
+  @Column(name = "from_user_id", nullable = false)
   private Long fromUserId;
 
   @Column(name = "to_contact_id")
   private Long toContacId;
 
-  @Column(name = "phone")
+  @Column(name = "phone", nullable = false)
   private String phone;
 
-  @Column(name = "template_code")
+  @Column(name = "template_code", nullable = false)
   private String templateCode;
 
-  @Column(name = "content")
+  @Column(name = "content", nullable = false)
   private String content;
 
   @Column(name = "attachment")
   private String attachment;
 
-  @Column(name = "created_at")
+  @Column(name = "created_at", nullable = false)
   private LocalDateTime createdAt;
 
 }
